@@ -9,7 +9,16 @@
 "/"	{ return '/'; }
 "("	{ return '('; }
 ")"	{ return ')'; }
-\n	{ return '\n'; }
+"{"	{ return '{'; }
+"}"	{ return '}'; }
+"^"     { return '^'; }
+"SQRT"  { return 666; }
+"PI"	{ return 3;   }
+"#" 	{ return 2;   }
+"I"	{ return 555; }
+"%"     { return 420; }
+"sum"   { return 888; }
+\n	{ return '\n';}
 .	;
 
 %%

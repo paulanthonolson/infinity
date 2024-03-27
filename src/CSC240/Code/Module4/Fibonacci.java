@@ -1,5 +1,3 @@
-package CSC240.Code.Module4;
-
 import java.util.Scanner;
 
 public class Fibonacci {
@@ -28,25 +26,25 @@ public class Fibonacci {
 
 		in.close();
 	}
-
-	// static {
-	// System.out.println("Hello World from static code!");
-	// }
+	
+//	static {
+//		System.out.println("Hello World from static code!");
+//	}
 
 	private static long fib(int x) {
 		count++;
-
+		
 		return x <= 1 ? x : fib(x - 2) + fib(x - 1);
 	}
 
 	private static long s_fib(int x) {
 		count++;
-
+		
 		if (f[x] >= 0)
 			return f[x];
-
+		
 		f[x] = (x <= 1 ? x : s_fib(x - 2) + s_fib(x - 1));
-
+		
 		return f[x];
 	}
 }

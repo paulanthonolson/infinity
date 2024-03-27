@@ -94,12 +94,6 @@ const		{ return CONST;		}
 "--"		{ return MINUS_MINUS;	}
 
 	
-
-
-
-
-
-
 	/* Constants: Integer, real and string */
 [-+]?[0-9]+	{ return INT_CONST;	}
 
@@ -112,12 +106,8 @@ const		{ return CONST;		}
 [a-zA-Z_][a-zA-Z0-9_]*	{ return IDENTIFIER;	}
 
 
-	/* New-line is used in the Scanner only for tracking lines */
-"\n"		{ return NEWLINE; }
-
-
 	/* Ignored stuff: macros, comments, whitespace (tab, newline, carriage return, space) */
-[ \t\r]+	// Ignored Whitespace, Tab, Carriage Return
+[ \t\r\n]+	// Ignored Whitespace, Tab, Carriage Return
 
 "//".*		// Ignore single line comments
 
@@ -131,5 +121,10 @@ const		{ return CONST;		}
 .		{ printf("%d: Lexical Error: '%c'\n", yylineno, yytext[0]); exit(0); }
 
 %%
+
+void yyerror () {
+	printf ("%d: Syntax error\n", yylineno);
+	exit(0);
+	}
 
 

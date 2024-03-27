@@ -16,13 +16,22 @@ extern char *yytext;
 %token makes		8
 %token is		9
 %token red		10
+%token q_mark           11
 
 %%
 
-statement	: sentence
+statement_list  :statement
+			| statement_list statement
 		    ;
-
+statement	: sentence
+			| question
+		    ;
+		    
 sentence	: subject verb object
+		{ printf("Found a sentence\n"); }
+		    ;
+question	: verb subject adjective q_mark
+		{ printf("Found a question\n"); }
 		    ;
 
 subject		: adjective_list noun
@@ -31,7 +40,6 @@ subject		: adjective_list noun
 adjective_list	: adjective 
 		        | adjective_list adjective
 				;
-
 object		: subject
 		    ;
 
@@ -43,5 +51,6 @@ verb		: makes | is
 
 adjective	: big | fast | good | high | red
 		    ;
+
 
 %%

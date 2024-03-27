@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <ctype.h>
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
 
-    int currentChar, isNewWord = 1;
+    int currentChar, isNewWord = 0;
 
-    const char *phonetic[26] = {"Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-ray", "Yankee", "Zulu"};
+    const char *phonetic[] = {"Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-ray", "Yankee", "Zulu"};
 
     FILE *inputFile = fopen(argv[1], "r");
 
@@ -15,7 +14,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    while ((currentChar = fgetc(inputFile)))
+    while ((currentChar = fgetc(inputFile)) != EOF)
     {
         if (isalpha(currentChar))
         {
@@ -28,7 +27,7 @@ int main(int argc, char *argv[])
         else
         {
             printf("%c", currentChar);
-            if (!isNewWord)
+           if (!isNewWord)
             {
                 printf("\n");
                 isNewWord = 1;

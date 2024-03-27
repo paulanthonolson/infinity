@@ -6,6 +6,10 @@ void add(char *, float, int);
 
 struct item {
    // Add your fields here
+   char name[32];
+   int quantity;
+   float price;
+   struct item *next;
 };
 
 struct item *head = NULL;
@@ -20,11 +24,22 @@ int main() {
    // Use a for-loop to print all of the items in the lst, and total each item (cost * quantity)
    // Use this format string: "%20s: %3d x %6.2f = %7.2f\n"
 
+   for (int i = 0; i < 5; i++) {
+      printf("%20s: %3d x %6.2f = %7.2f\n", head->name, head->quantity, head->price, head->quantity * head->price);
+      head = head->next;
+   }
+
    return 0;
 }
 
 void add(char *name, float cost, int quantity) {
-   // Create a new struct item
-   // Fill it with the vaues passed
-   // Link it to the front of the list.
+   
+   struct item *new_item = malloc(sizeof(struct item));
+   strcpy(new_item->name, name);
+   new_item->quantity = quantity;
+   new_item->price = cost;
+   new_item->next = head;
+   head = new_item;
+
+  
 }

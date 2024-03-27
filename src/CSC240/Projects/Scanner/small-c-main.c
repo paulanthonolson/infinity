@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
    int tokenNumber;
    int lineNumber = 1;
 
-   printf("Small-C Scanner - Student Name\n");
+   printf("Small-C Scanner - Paul Olson\n");
    
    if (argc != 2) {
       fprintf(stderr, "usage: small-c <filename>\n");

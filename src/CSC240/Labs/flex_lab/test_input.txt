@@ -1,4 +1,6 @@
 while
+for
+if
 word
 10110
 +123.456
@@ -10,4 +12,7 @@ a comment? # here it is
 -1 12. 0.000 1011 1011.01 +.2344
 
 # The end!!!!
+// A Single Line Comment
+LEGAL_C_IDENTIFIERS
+"She said \"Hello\" to me."
 
