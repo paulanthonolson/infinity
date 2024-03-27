@@ -1,0 +1,16 @@
+all : hello helloCSC cscrape
+
+clean :
+	-rm hello helloCSC cscrape lex.yy.c
+
+hello : hello.c
+	gcc hello.c -o hello
+
+helloCSC : helloCSC.c
+	gcc helloCSC.c -o helloCSC
+
+cscrape : lex.yy.c cscrape-main.c
+	gcc lex.yy.c cscrape-main.c -o cscrape
+
+lex.yy.c : cscrape.l
+	flex cscrape.l

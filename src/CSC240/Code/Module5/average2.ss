@@ -1,0 +1,5 @@
+(define average (lambda (L) 
+   (/ (reduce +  0  L) 
+      (length L)
+   )
+))

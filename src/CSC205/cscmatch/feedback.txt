@@ -1,0 +1,8 @@
+Additions:
+    1) In doListMembers and doListAllMembers I added logic to force the first letter of each name to uppercase when displayed through the menu.
+Changes:
+    1) None that I can recall at this time, but it is possible something changed in the process of developing this assignment.
+Clarifications:
+    1) I needed to clarify that changing things in places other than Menu had the opposite result as intended and actually broke TestData.csc
+Additional Comments:
+    1) This was a fun and challenging assignment that tested my knowledge gained over the semester, and also pushed me to seek more knowledge. I appreciate how you gave less help as each step progressed.

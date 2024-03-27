@@ -1,0 +1,31 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class GameBoard {
+}
+
+class Ghost {
+    +move()
+    +draw()
+}
+
+class PacMan {
+    +move()
+    +draw()
+}
+
+abstract class Player {
+    {abstract} +move()
+    {abstract} +draw()
+}
+
+Player <|-- Ghost
+Player <|-- PacMan
+Ghost "4" -right- "1" GameBoard
+PacMan "1" -left- "1" GameBoard
+GameBoardDriver "1" -up- "1" GameBoard
+GameBoard --|> JPanel
+GameBoard ..|> ActionListener
+GameBoard ..|> KeyListener
+
+@enduml

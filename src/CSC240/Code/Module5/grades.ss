@@ -1,0 +1,8 @@
+(define grades (lambda(n)
+	(cond	((>= n 90) 'A)
+		 ((>= n 80) 'B)
+		 ((>= n 70) 'C)
+		 ((>= n 60) 'D)
+		 (else 'F)   ; or use  (true 'F)
+	)
+)))

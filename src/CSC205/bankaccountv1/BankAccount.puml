@@ -1,0 +1,64 @@
+@startuml Bank Accounts
+
+' Lines that start with ' are comments
+
+' To enable previewing these diagrams, install the
+' VS Code Extension "PlantUML - Simple Viewer" by well-ar
+
+' Once you have a .puml file open, you an click on
+' the Preview Current Diagram icon (looks like an open book
+' with a magnifying glass over it) in the upper right of
+' VS Code next to the Print icon.
+
+' The next line prevents changing + (public), - (private),
+' # (protected), and ~ (package) to icons in diagrams.
+skinparam classAttributeIconSize 0
+
+' For the instance variables and methods, pay careful
+' attention to how the names and types are reversed
+' from Java. For instance, the Java declarations:
+'     private double balance;
+'     public void deposit(double amount)
+' are written in UML as:
+'     -balance: double
+'     +deposit(amount: double): void
+
+class CheckingAccount {
+	-accountNumber: int
+	-owner: String
+    -balance: double
+
+    +CheckingAccount(\n\
+       accountNumber: int,\n\
+       owner: String,\n\
+       initialDeposit: double)
+    +getBalance(): double
+	+getOwner(): double
+	+getAccountNumber(): int
+	+deposit(amount: double): void
+    +withdraw(amount: double): void
+    +writeCheck(amount: double): void
+    +toString(): String
+}
+
+class SavingsAccount {
+	-accountNumber: int
+	-owner: String
+    -balance: double
+    -interestRate: double
+
+    +SavingsAccount(\n\
+       accountNumber: int,\n\
+       owner: String,\n\
+       initialDeposit: double,\n\
+       interestRate: double)
+    +getBalance(): double
+	+getOwner(): double
+	+getAccountNumber(): int
+    +getInterestRate(): double
+	+deposit(amount: double): void
+    +withdraw(amount: double): void
+    +earnInterest(): void
+    +toString(): String
+}
+@enduml

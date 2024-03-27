@@ -1,0 +1,7 @@
+dairy             deli              frozen            produce           
+================  ================  ================  ================  
+butter            ham, deli style   peas              bananas           
+milk              cheese                              apples            
+                  turkey                              green beans       
+================  ================  ================  ================  
+2                 3                 1                 3                 

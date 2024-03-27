@@ -1,0 +1,46 @@
+@startuml Person
+' Show + and - instead of icons for visibility
+skinparam classAttributeIconSize 0
+
+class Person {
+  -name: String
+  +Person(name: String, phone: String)
+  +getName(): String
+  +getPhone(): String
+  +setName(name: String): void
+  +setPhone(phone: String): void
+  +toString(): String
+}
+
+class Professor {
+  -employeeID: String
+  -department: String
+  +Professor(name: String,\n\
+     phone: String,\n\
+     employeeID: String,\n\
+     department: String)
+  +getEmployeeID(): String
+  +getDepartment(): String
+  +setEmployeeID(employeeID: String): void
+  +setDepartment(department: String): void
+  +toString(): String
+}
+
+class Student {
+  -studentID: String
+  -gpa: double
+  +Student(name: String,\n\
+     phone: String,\n\
+     studentID: String,\n\
+     gpa: double)
+  +getStudentID(): String
+  +getGpa(): String
+  +setStudentID(studentID: String): void
+  +setGpa(gpa: double): void
+  +toString(): String
+}
+
+' <|-- creates inheritance relationship
+Person <|-- Professor
+Person <|-- Student
+@enduml

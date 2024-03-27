@@ -1,0 +1,1 @@
+(define first-char (lambda (S) (string-ref S 0)))

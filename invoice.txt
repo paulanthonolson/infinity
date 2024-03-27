@@ -1,0 +1,7 @@
+Qty  Description             Unit     Ext
+  5  Backpack               19.99   99.95
+ 10  Lined Paper             0.99    9.90
+  3  Ballpoint Pen           1.49    4.47
+  2  Pencil                  1.19    2.38
+
+Total: $116.70
