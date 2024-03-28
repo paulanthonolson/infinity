@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"name": "infinity",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"ostream": "cpp",
+			"algorithm": "cpp"
+		}
+	}
+}
