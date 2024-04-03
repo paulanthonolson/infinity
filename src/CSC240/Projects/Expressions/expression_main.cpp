@@ -6,12 +6,16 @@ using namespace std;
 int main(int argc, char *argv[]) {
 	
 	// Simple constant expression for Suggested Step #3
-	// expression *e = new constant(3);
+	/*expression 8expression *e = new unop('-', new constant(-5));
+	cout << "Evaluate: " << e-> eval() << endl;
+	cout << "Infix: " << e-> infix() << endl;
+	cout << "Postfix: " << e-> postfix() << endl;
+	return 0;*/
 	
 	// Simple unop expression for Suggested Step #6
 	// expression *e = new unop('-', new constant(3));
 
-	// Complete binop expression for Suggested Step #9
+	//Complete binop expression for Suggested Step #9
 	expression *e = new binop('*',
 			new unop('-', new constant(3)),
 			new binop('+',
@@ -22,7 +26,8 @@ int main(int argc, char *argv[]) {
 				)
 			)
 		);
-		
+	cout << "Expressions: Paul Olson" << endl;
+	cout << endl;
 	cout << "Evaluate: " << e->eval() << endl;
 	cout << "Infix: " << e->infix() << endl;
 	cout << "Postfix: " << e->postfix() << endl;
