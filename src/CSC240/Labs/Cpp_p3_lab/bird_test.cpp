@@ -1,4 +1,5 @@
 #include <iostream>
+#include "animal.h"
 #include "bird.h"
 
 using namespace std;
