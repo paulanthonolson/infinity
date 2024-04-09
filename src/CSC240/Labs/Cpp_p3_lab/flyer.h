@@ -9,7 +9,7 @@ class flyer : virtual public animal {
                 float max_altitude;
                 float max_duration;
           public:
-                flyer(int max_alt, int max_dur) : animal("", 0) {
+                flyer(float max_alt, float max_dur) : animal("", 0) {
                     this->max_altitude = max_alt;
                     this->max_duration = max_dur;
                 }
