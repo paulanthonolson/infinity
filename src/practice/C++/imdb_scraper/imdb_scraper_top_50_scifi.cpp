@@ -14,8 +14,8 @@
 #include <boost/asio/connect.hpp>
 #include <boost/asio/ip/tcp.hpp>
 #include <boost/asio/ssl/stream.hpp>
-#include <boost/beast/html/html_parser.hpp>
 #include <boost/algorithm/string.hpp>
+#include "html_parser.hpp" // Include the html.hpp header file
 
 using namespace std;
 
@@ -43,62 +43,15 @@ int main() {
     CURLcode res;
     string readBuffer;
 
-    curl = curl_easy_init();
-    if (curl) {
-        for (int page : pages) {
-            string url = "https://www.imdb.com/search/title?genres=sci-fi&start=" + to_string(page) + "&explore=title_type,genres&ref_=adv_prv";
-            curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-            curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-            curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
-            res = curl_easy_perform(curl);
+    string url = "https://www.imdb.com/search/title?genres=sci-fi&start=";
+    string html = fetchHtml(url);
 
-            if (res != CURLE_OK) {
-                cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
-            } else {
-                // Parse the HTML response using a library like Boost.Beast or libxml2
-                // Extract the desired information and store it in the respective vectors
-                // titles.push_back(...);
-                // years.push_back(...);
-                // ratings.push_back(...);
-                // genres.push_back(...);
-                // runtimes.push_back(...);
-                // imdb_ratings.push_back(...);
-                // metascores.push_back(...);
-                // votes.push_back(...);
-            
-
-                if (res != CURLE_OK) {
-                    cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << endl;
-                } else {
-                    // Parse the HTML response using Boost.Beast
-                    boost::beast::html_document<boost::beast::string_view> doc;
-                    doc.parse(readBuffer);
-
-                    // Extract the desired information and store it in the respective vectors
-                    // For example, to extract the titles:
-                    for (const auto& title : doc.find_all(boost::beast::html_match_selector("h3.lister-item-header a"))) {
-                        titles.push_back(boost::beast::html_text(title));
-                    }
-
-                    // Similarly, you can extract other information like years, ratings, genres, etc.
-
-                    // ...
-                }
-            }
-
-            readBuffer.clear();
-
-            // Introduce a random delay between requests
-            srand(time(NULL));
-            int delay = rand() % 8 + 8; // Random delay between 8 and 15 seconds
-            this_thread::sleep_for(chrono::seconds(delay));
-        }
-
-        curl_easy_cleanup(curl);
-    }
-
+    HtmlParser parser;
+    parser.parse(html);
+    
     // Process the scraped data
     // Convert years to integers
+    
     for (string& year : years) {
         year = year.substr(year.length() - 5, 4);
     }
@@ -132,23 +85,17 @@ int main() {
 
     // Write the final data to a CSV file
     // You can use a library like rapidcsv or implement your own CSV writing logic
-  
+    ofstream myCSV;
+    myCSV.open("imdb_top_50_scifi.csv");
+    myCSV << "Titles\n";
+    myCSV << "Years\n";
+    myCSV << "Ratings\n";
+    myCSV << "Genres\n";
+    myCSV << "Runtimes\n";
+    myCSV << "IMDB Ratings\n";
+    myCSV << "Metascores\n";
+    myCSV << "Votes\n";
+    myCSV.close();
 
-
-      ofstream myCSV;
-
-      myCSV.open ("imdb_top_50_scifi.csv");
-      myCSV << "Titles\n";
-      myCSV << "Years\n";
-      myCSV << "Ratings\n";
-      myCSV << "Genres\n";
-      myCSV << "Runtimes\n";
-      myCSV << "IMDB Ratings\n";
-      myCSV << "Metascores\n";
-      myCSV << "Votes\n";
-      myCSV.close();
-      
-
-
-return 0;
+    return 0;
 }

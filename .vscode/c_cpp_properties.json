@@ -4,9 +4,10 @@
             "name": "macos-clang-arm64",
             "includePath": [
                 "${workspaceFolder}/**",
+                "/usr/include",
                 "/usr/local/include",
-                "/usr/include/boost",
-                "/usr/include"
+                "/usr/include/boost"
+                
             ],
             "cStandard": "${default}",
             "cppStandard": "${default}",
@@ -17,13 +18,15 @@
         {
             "name": "macos-g++-arm64",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/usr/local/include",
+                "/usr/include"
             ],
             "defines": [],
             "cStandard": "c17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "macos-gcc-arm64",
-            "compilerPath": "/usr/bin/clang++"
+            "compilerPath": "/usr/bin/aarch64-linux-gnu-g++"
         }
     ],
     "version": 4
