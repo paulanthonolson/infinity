@@ -1,3 +1,19 @@
 (display "1) ") (display "CSC240 Scheme/LISP values") (newline)
-
-
+(display "2) ") (display "Student Name: Paul Olson") (newline)
+(display "3) ") (display ( + 1 2 3 4 5 6 7 8 9 10)) (newline)
+(display "4) ") (display ( / 9.2 7/16)) (newline)
+(display "5) ") (display ( remainder 17365 412)) (newline)
+(display "6a) ") (display (let 
+                    ((a 2) (b 5) (c -12))
+                    (/ (+ (- b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a)))) (newline)
+(display "6b) ") (display (let 
+                    ((a 2) (b 5) (c -12))
+                    (/ (- (- b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a)))) (newline)
+(display "7) ") (display (if (> (sqrt 10) 3) "Yes" "No")) (newline)
+(display "8) ") (display (string-ref "abcdefghijklmnopqrstuvwxyz" (- 10 1))) (newline)
+(display "9) ") (let ((num1 (read)) (num2 (read))) (if(> num1 num2) (display "Bigger") (display "Smaller"))) (newline)
+(display "10) ") (display (cons "November" (cons 4 (cons 'black'())))) (newline)
+(display "11a) ") (display (car '( 1 3 5 7))) (newline)
+(display "11b) ") (display (cdr '(1 3 5 7))) (newline)
+(display "11c) ") (display (cadr '(1 3 5 7))) (newline)
+(display "11d) ") (display (cadddr '(1 3 5 7))) (newline)
