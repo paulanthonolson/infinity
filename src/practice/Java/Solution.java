@@ -1,4 +1,4 @@
-package practice;
+package practice.Java;
 
 import java.io.*;
 import java.math.*;

@@ -1,4 +1,4 @@
-package CSC205.yahtzee;
+package yahtzee;
 
 // These are the tests to use against your implementation of YahtzeeRoll.
 // Do not make any changes to this file.

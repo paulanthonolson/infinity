@@ -1,4 +1,4 @@
-package practice.randomPractice.dice;
+package practice.Java.randomPractice.dice;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

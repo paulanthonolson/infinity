@@ -86,7 +86,7 @@ public class Player
 	 * index 0 will always exist : -1
 
 	 */
-	private int[] DamageCausedbyItem; // // Note, this is just the reference variable. The list of damage values will be created later.
+	int[] DamageCausedbyItem; // // Note, this is just the reference variable. The list of damage values will be created later.
 	
 	/***************************************************************************************************
 	 * CONSTRUCTORS

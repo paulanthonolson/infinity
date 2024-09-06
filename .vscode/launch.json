@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "GameDriver_PaulOlson",
+      "request": "launch",
+      "mainClass": "assignments.GameDriver_PaulOlson",
+      "projectName": "GitHub_452045d9"
+    },
+    {
+      "type": "java",
       "name": "Assembler",
       "request": "launch",
       "mainClass": "Assembler",

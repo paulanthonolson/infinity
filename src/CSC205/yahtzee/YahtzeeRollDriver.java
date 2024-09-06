@@ -1,4 +1,4 @@
-package CSC205.yahtzee;
+package yahtzee;
 
 public class YahtzeeRollDriver {
     public static void main(String[] args) {

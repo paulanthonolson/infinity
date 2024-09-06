@@ -219,8 +219,8 @@ public class GameDriver_PaulOlson {
 
 	*/
 
-	Player myPlayer = setPlayer();
-	Enemy[] EnemiesSpawned = new Enemy [GameConstantsAndStaticVars.NUM_OF_ENEMIES];
+	static Player myPlayer = setPlayer();
+	static Enemy[] EnemiesSpawned = new Enemy [GameConstantsAndStaticVars.NUM_OF_ENEMIES];
 	
 	/*******************************************************************************************
 
@@ -272,6 +272,10 @@ public class GameDriver_PaulOlson {
 
 	} //end findItemIdx method
 	
+	private static Player setPlayer() {
+		return null;
+	}
+
 	/****************************************************************************************
 
 	* Method: printPlayer will print the player information
@@ -693,18 +697,25 @@ public class GameDriver_PaulOlson {
                                 */
 				if (menuChoice == 1)
 				{
-					< STEP 1: ADD breakTree method call with the appropriate parameters>
+					/*< STEP 1: ADD breakTree method call with the appropriate parameters>*/
 				}
 				else if (menuChoice == 2)
 				{
-					<STEP 2: Add purchaseItem method call with the appropriate parameters>
+					/*<STEP 2: Add purchaseItem method call with the appropriate parameters>*/
 				}
 				else if (menuChoice == 3)
-					<STEP 3: Add fightEnemy method call with the appropriate parameters> 
-				else if (menuChoice != 4)
+				{
+					/*<STEP 3: Add fightEnemy method call with the appropriate parameters> */
+				}
+				if (menuChoice != 4)
+				{
+					// Code to execute when menuChoice is not equal to 4
 					System.out.println("Wrong menu choice. Try again");
+				}
 				else
+				{
 					System.out.println("Game Ending!");
+				}
 				
 				
 				} //end if player is still alive

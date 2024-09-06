@@ -1,4 +1,4 @@
-package hackerrank.staircase;
+package hackerrank.java.staircase;
 
 import java.io.*;
 import java.math.*;

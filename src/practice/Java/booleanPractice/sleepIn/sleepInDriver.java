@@ -1,4 +1,4 @@
-package practice.booleanPractice.sleepIn;
+package practice.Java.booleanPractice.sleepIn;
 
 import java.util.Scanner;
 

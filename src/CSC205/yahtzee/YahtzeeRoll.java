@@ -1,4 +1,4 @@
-package CSC205.yahtzee;
+package yahtzee;
 
 import java.util.Arrays;
 

@@ -1,5 +1,5 @@
 
-
+package Assembler;
 import java.util.Scanner;
 
 public class Assembler {

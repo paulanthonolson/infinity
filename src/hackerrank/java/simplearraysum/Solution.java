@@ -1,4 +1,4 @@
-package hackerrank.simplearraysum;
+package hackerrank.java.simplearraysum;
 
 import java.io.*;
 import java.math.*;

@@ -1,4 +1,4 @@
-package hackerrank.chocolatefeast;
+package chocolatefeast;
 
 import java.io.*;
 import java.math.*;
