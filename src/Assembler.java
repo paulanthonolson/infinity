@@ -13,7 +13,7 @@ public class Assembler {
             testCases();
         } else {
 
-            System.out.println("Assembler - Paul Olson\n");
+            System.out.println("Assembler - Paul Olson - CSC230 - Profesor Eckert\n");
 
             /*  Enter assembly code here */
 
@@ -23,8 +23,11 @@ public class Assembler {
             System.out.println("Enter 'HALT' to quit.");
 
             String line;
+            
             do {
-                System.out.print("> ");
+            
+            System.out.print("> ");
+            
             line = input.nextLine().trim();
 
             if (!line.equalsIgnoreCase("HALT")) {
