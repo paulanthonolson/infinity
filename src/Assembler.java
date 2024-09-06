@@ -67,7 +67,10 @@ public class Assembler {
                         continue;
                 }
 
-                System.out.println("Machine code: " + machineCode);
+                String hexCode = Integer.toHexString(machineCode).toUpperCase();
+                
+                System.out.println("Machine code (decimal): " + machineCode);
+                System.out.println("Machine code (hex): 0x" + String.format("%8s", hexCode).replace(' ', '0'));
                 System.out.println("Binary code: " + String.format("%32s", Integer.toBinaryString(machineCode)).replace(" ", "0"));
 
                 count++;
@@ -108,7 +111,7 @@ public class Assembler {
     private static byte regToByte(String r) {
         byte returnValue = 0;
 
-        switch (r) {
+        switch (r.toUpperCase()) {
             case "$ZERO":
                 returnValue = 0;
                 break;
