@@ -32,38 +32,38 @@ public class Assembler {
 
             if (!line.equalsIgnoreCase("HALT")) {
                 
-                String[] token = line.split(" ");
+                String[] register = line.split(" ");
                 
-                String opcode = token[0].toUpperCase();
+                String opcode = register[0].toUpperCase();
                 int machineCode = 0;
 
                 switch (opcode) {
                     case "ADD":
-                        machineCode = ADD(token[1], token[2], token[3]);
+                        machineCode = ADD(register[1], register[2], register[3]);
                         break;
                     case "AND":
-                        machineCode = AND(token[1], token[2], token[3]);
+                        machineCode = AND(register[1], register[2], register[3]);
                         break;
                     case "SLL":
-                        machineCode = SLL(token[1], token[2], token[3]);
+                        machineCode = SLL(register[1], register[2], register[3]);
                         break;
                     case "SRL":
-                        machineCode = SRL(token[1], token[2], token[3]);
+                        machineCode = SRL(register[1], register[2], register[3]);
                         break;
                     case "ADDI":
-                        machineCode = ADDI(token[1], token[2], token[3]);
+                        machineCode = ADDI(register[1], register[2], register[3]);
                         break;
                     case "ANDI":
-                        machineCode = ANDI(token[1], token[2], token[3]);
+                        machineCode = ANDI(register[1], register[2], register[3]);
                         break;
                     case "BEQ":
-                        machineCode = BEQ(token[1], token[2], token[3]);
+                        machineCode = BEQ(register[1], register[2], register[3]);
                         break;
                     case "LW":
-                        machineCode = LW(token[1], token[2], token[3]);
+                        machineCode = LW(register[1], register[2], register[3]);
                         break;
                     case "SW":
-                        machineCode = SW(token[1], token[2], token[3]);
+                        machineCode = SW(register[1], register[2], register[3]);
                         break;
                     default:
                         System.out.println("Invalid opcode: " + opcode);
