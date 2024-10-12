@@ -3,6 +3,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "HWMult",
+      "request": "launch",
+      "mainClass": "HardwareMultiply.HWMult",
+      "projectName": "GitHub_452045d9"
+    },
+    {
+      "type": "java",
+      "name": "HardwareMultiply",
+      "request": "launch",
+      "mainClass": "HardwareMultiply.HardwareMultiply",
+      "projectName": "GitHub_452045d9"
+    },
+    {
+      "type": "java",
+      "name": "HardwareMultiply",
+      "request": "launch",
+      "mainClass": "HardwareMultiply",
+      "projectName": "GitHub_452045d9"
+    },
+    {
+      "type": "java",
       "name": "Assembler",
       "request": "launch",
       "mainClass": "Assembler.Assembler",
