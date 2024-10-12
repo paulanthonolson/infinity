@@ -18,8 +18,8 @@ public class HWMult {
         long product = HW_Mult(multiplier, multiplicand);
 
        
-        System.out.println("Algorithm result: " + product);
-        System.out.println("Java result: " + ((long) multiplier * multiplicand));
+        System.out.println("Algorithm result: " + multiplier + " * " + multiplicand + " = " + product);
+        System.out.println("Java result: " + multiplier + " * " + multiplicand + " = " + ((long) multiplier * multiplicand));
 
         scanner.close();
 
