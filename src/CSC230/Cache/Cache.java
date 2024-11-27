@@ -7,8 +7,14 @@ public class Cache{
     // Variables
 
 	private String name;
-	private int addressSize;
-	private int wordSize;
+	private int addressSizeBits;
+    private int addressSize;
+    private int addressSizeBytes;
+    private int wordSize;
+	private int wordSizeBits;
+    private int wordSizeBytes;
+    private int wordSizeWords;
+    private int numberOfBlocks;
 	private int blockSize;
 	private int numLines;
 
@@ -16,8 +22,11 @@ public class Cache{
 
 	public Cache(String name, int addressSize, int wordSize, int blockSize, int numLines) {
 		this.name = name;
-		this.addressSize = addressSize;
-		this.wordSize = wordSize;
+		this.addressSizeBits = addressSize;
+        this.addressSizeBytes = addressSize;
+		this.wordSizeBits = wordSize;
+        this.wordSizeBytes = wordSize;
+        this.wordSizeWords = wordSize;
 		this.blockSize = blockSize;
 		this.numLines = numLines;
 	}
@@ -28,11 +37,23 @@ public class Cache{
         return name;
     }
 
-    public int getAddressSize() {
+    public int getAddressSizeBits() {
+    return addressSize;
+    }
+
+    public int getAddressSizeBytes() {
         return addressSize;
     }
 
-    public int getWordSize() {
+    public int getWordSizeBits() {
+        return wordSize;
+    }
+
+    public int getWordSizeBytes() {
+        return wordSize;
+    }
+
+    public int getWordSizeWords() {
         return wordSize;
     }
 
@@ -43,7 +64,7 @@ public class Cache{
     public int getNumLines() {
         return numLines;
     }
-
+    
 // Methods
 
     public void print() {
