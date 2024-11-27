@@ -7,16 +7,26 @@ public class Cache{
     // Variables
 
 	private String name;
-	private int addressSizeBits;
-    private int addressSize;
+	private int addressSize;
+    private int addressSizeBits;
     private int addressSizeBytes;
-    private int wordSize;
+    private int wordSize = 1;
 	private int wordSizeBits;
     private int wordSizeBytes;
     private int wordSizeWords;
     private int numberOfBlocks;
 	private int blockSize;
 	private int numLines;
+    private int offsetSize;
+    private int blockNumberSize;
+    private int tagSize;
+    private int totalCacheSize;
+    private int totalMemorySize;
+    private int blockAddress;
+    private int blockAddressSize;
+    private int blockNumberIndex;
+    private int tag;
+    private int offset;
 
 // Constructor
 
@@ -29,6 +39,8 @@ public class Cache{
         this.wordSizeWords = wordSize;
 		this.blockSize = blockSize;
 		this.numLines = numLines;
+        this.offsetSize = log2(blockSize);
+        this.blockAddressSize = (addressSize - log2(blockSize));
 	}
 
 // Getters
@@ -42,27 +54,35 @@ public class Cache{
     }
 
     public int getAddressSizeBytes() {
-        return addressSize;
+        return addressSize / 8;
     }
 
     public int getWordSizeBits() {
-        return wordSize;
+        return wordSizeBits;
     }
 
     public int getWordSizeBytes() {
-        return wordSize;
+        return wordSize / 8;
     }
 
     public int getWordSizeWords() {
         return wordSize;
     }
 
-    public int getBlockSize() {
-        return blockSize;
+    public int getBlockSizeBits() {
+        return wordSize * blockSize;
+    }
+
+    public int getBlockSizeBytes() {
+        return (wordSizeBits / 8) * blockSize;
     }
 
     public int getNumLines() {
         return numLines;
+    }
+
+    public int getOffsetSize() {
+        return offsetSize;
     }
     
 // Methods
@@ -74,6 +94,11 @@ public class Cache{
     }
 
     public void stats() {
+    }
+
+    public int log2(int x) {
+        
+        return (int)(Math.log(x)/Math.log(2));
     }
 
     
