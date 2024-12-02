@@ -29,9 +29,9 @@ public class Cache{
     private int offset = 0;
     private int[] tags;
     private boolean[] validBits;
-    private int requests = 0;
-    private int hits = 0;
-    private int misses = 0;
+    private int totalRequests = 0;
+    private int totalHits = 0;
+    private int totalMisses = 0;
 
 // Constructor
 
@@ -129,12 +129,13 @@ public class Cache{
 
     public void print() {
         System.out.println("~~~~~~~~~~~~ CSC230 Cache Size Report ~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~ Paul Olson - Fall 2024 ~~~~~~~~~~~~");
         System.out.println("Memory : " + totalMemorySizeWords + " words of " + wordSize + " bits (" + totalMemorySizeBytes + " bytes)");
         System.out.println("Cache : " + numLines + " lines with " + tagSize + " bits of tag, 1 bit for the valid flag and " + blockSize + " words of data each (" + totalCacheSize + " bits)");
     }
 
     public void readLocation(int address) {
-        requests++;
+        totalRequests++;
 
         offset = address & ((1 << offsetSize) - 1);
         blockNumberIndex = (address >> offsetSize) & ((1 << blockNumberSize) -1);
@@ -144,9 +145,9 @@ public class Cache{
         boolean isHit = validBits[blockNumberIndex] && tags[blockNumberIndex] == tag;
 
         if (isHit) {
-            hits++;
+            totalHits++;
         } else {
-            misses++;
+            totalMisses++;
             tags[blockNumberIndex] = tag;
             validBits[blockNumberIndex] = true;
         }
@@ -160,16 +161,16 @@ public class Cache{
     }
 
     public void stats() {
-        double hitRatio = requests == 0 ? 0 : (hits * 100.0) / requests;
-        double missRatio = requests == 0 ? 0 : (misses * 100.0) / requests;
+        double hitRatio = totalRequests == 0 ? 0 : (totalHits * 100.0) / totalRequests;
+        double missRatio = totalRequests == 0 ? 0 : (totalMisses * 100.0) / totalRequests;
 
         System.out.println("**********");
         System.out.println("********** CSC 230 Cache Status Report");
         System.out.println("********** Paul Olson - Fall 2024");
         System.out.println("**********");
-        System.out.println("\tRequests: " + requests);
-        System.out.printf("\tHits : %d (%.1f%%)\n", hits, hitRatio);
-        System.out.printf("\tMisses : %d (%.1f%%)\n", misses, missRatio);
+        System.out.println("\tRequests: " + totalRequests);
+        System.out.printf("\tHits : %d (%.1f%%)\n", totalHits, hitRatio);
+        System.out.printf("\tMisses : %d (%.1f%%)\n", totalMisses, missRatio);
     }
 
     private int log2(int x) {
