@@ -15,11 +15,7 @@ public class Cache {
     private int blockAddressSize;
     
     private int wordSizeBits;
-    private int wordSizeBytes;
-    private int wordSizeWords;
-    
-    private int addressSizeBytes;
-    
+ 
     private int totalMemorySizeWords;
     private long totalMemorySizeBytes;
     
@@ -46,12 +42,9 @@ public class Cache {
         this.blockSize = blockSize;
         
         this.wordSizeBits = wordSize;
-        this.wordSizeBytes = wordSize / 8;
-        this.wordSizeWords = wordSize;
         
         this.addressSizeBits = addressSize;
-        this.addressSizeBytes = addressSize / 8;
-        
+       
         this.offsetSize = log2(blockSize * (wordSize / 8));
         this.blockNumberSize = log2(numLines);
         this.tagSize = addressSize - blockNumberSize - offsetSize;
@@ -67,59 +60,12 @@ public class Cache {
     
     // Getters
     
-    public String getName() { 
-    return name; 
-    }
-    
-    public int getAddressSizeBits() { 
-    return addressSizeBits; 
-    }
-    
-    public int getAddressSizeBytes() { 
-    return addressSizeBytes; 
-    }
-    
     public int getWordSizeBits() { 
     return wordSizeBits; 
     }
     
-    public int getWordSizeBytes() { return wordSizeBytes; 
-    }
-    
-    public int getWordSizeWords() { 
-    return wordSizeWords; 
-    }
-    
-    public int getBlockSizeBits() { 
-    return wordSizeBits * blockSize; 
-    }
-    
     public int getBlockSizeBytes() { 
     return (wordSizeBits / 8) * blockSize; 
-    }
-    
-    public int getNumberOfBlocks() { 
-    return numLines; 
-    }
-    
-    public int getOffsetSize() { 
-    return offsetSize; 
-    }
-    
-    public int getBlockAddressSize() { 
-    return blockAddressSize; 
-    }
-    
-    public int getBlockNumberSize() { 
-    return blockNumberSize; 
-    }
-    
-    public int getTotalCacheSize() { 
-    return totalCacheSize; 
-    }
-    
-    public int getTotalMemorySizeWords() { 
-    return totalMemorySizeWords; 
     }
     
     // Methods
@@ -170,8 +116,8 @@ public class Cache {
         System.out.println("********** Paul Olson - Fall 2024");
         System.out.println("**********");
         System.out.println("\tRequests: " + totalRequests);
-        System.out.printf("\tHits : %d (%.1f%%)\n", totalHits, hitRatio);
-        System.out.printf("\tMisses : %d (%.1f%%)\n", totalMisses, missRatio);
+        System.out.printf("\tHits : %d (%.15f%%)\n", totalHits, hitRatio);
+        System.out.printf("\tMisses : %d (%.15f%%)\n", totalMisses, missRatio);
     }
 
     private void printAddressBreakdown(int address, int blockAddress, int offset, int blockNumberIndex, int tag, boolean isHit) {

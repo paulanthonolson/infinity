@@ -5,6 +5,13 @@
       "type": "java",
       "name": "CacheDriver",
       "request": "launch",
+      "mainClass": "T_Cache.CacheDriver",
+      "projectName": "GitHub_452045d9"
+    },
+    {
+      "type": "java",
+      "name": "CacheDriver",
+      "request": "launch",
       "mainClass": "Cache.CacheDriver",
       "projectName": "GitHub_452045d9"
     },
