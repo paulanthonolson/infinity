@@ -6,8 +6,9 @@
                 "${workspaceFolder}/**",
                 "/usr/include",
                 "/usr/local/include",
-                "/usr/include/boost"
-                
+                "/usr/include/boost",
+                "/Users/admin/Documents/Arduino/arduino/**",
+                "/opt/homebrew/**"
             ],
             "cStandard": "${default}",
             "cppStandard": "${default}",
@@ -19,14 +20,15 @@
             "name": "macos-g++-arm64",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/local/include",
-                "/usr/include"
+                "/Users/admin/Documents/Arduino/arduino/**",
+                "/opt/homebrew/**"
             ],
-            "defines": [],
+            "defines": ["USBCON" ],
             "cStandard": "c17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "macos-gcc-arm64",
-            "compilerPath": "/usr/bin/aarch64-linux-gnu-g++"
+            "compilerPath": "/usr/bin/gcc"
+            
         }
     ],
     "version": 4
