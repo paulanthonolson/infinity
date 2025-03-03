@@ -1,14 +1,5 @@
 #include "Arduino.h"
 
-/*
- * Hello World with Morse Code Blink
- * 
- * This program prints "hello world" to the serial monitor and
- * blinks the same message in Morse code using the built-in LED.
- * 
- * For Arduino Uno, the built-in LED is on pin 13.
- */
-
 // Define pin for the built-in LED
 const int ledPin = 13;
 
@@ -54,25 +45,35 @@ void blinkMorseMessage(String message);
 void blinkLetter(char letter);
 void blinkDot();
 void blinkDash();
+void printMorseCode(char letter);
 
 void setup() {
   // Initialize the digital pin as an output
   pinMode(ledPin, OUTPUT);
   
   // Initialize serial communication at 9600 bits per second
-  Serial.begin(115200);
+  Serial.begin(9600);
   
-  }
+  // Print startup message
+  Serial.println("Morse Code Transmitter Started");
+  Serial.println("-----------------------------");
+}
 
 void loop() {
-
-  // Print "hello world" to the serial monitor
-  Serial.println("hello world");
-
-  // Blink "hello world" in Morse code
-  blinkMorseMessage("hello world");
+  // Define the message to blink
+  String message = "skibidi toilet sigma rizz";
+  
+  // Print the full message first
+  Serial.println("\nTransmitting message: \"" + message + "\"");
+  Serial.println("-----------------------------");
+  
+  // Blink the message in Morse code
+  blinkMorseMessage(message);
   
   // Pause between message repetitions
+  Serial.println("-----------------------------");
+  Serial.println("Message transmission complete");
+  Serial.println("Waiting before repeating...");
   delay(wordSpace * 2);
 }
 
@@ -87,17 +88,43 @@ void blinkMorseMessage(String message) {
     
     // Handle space between words
     if (c == ' ') {
+      Serial.println("<space>");
       delay(wordSpace);
     }
     // Handle letters (a-z)
     else if (c >= 'a' && c <= 'z') {
+      // Print the letter being transmitted
+      Serial.print("Transmitting '");
+      Serial.print(c);
+      Serial.print("' in Morse: ");
+      
+      // Print the Morse code representation
+      printMorseCode(c);
+      
+      // Blink the letter
       blinkLetter(c);
+      
       // Only add letter space if not the last character or if the next isn't a space
       if (i < message.length() - 1 && message.charAt(i + 1) != ' ') {
         delay(letterSpace);
       }
     }
     // Other characters (numbers, punctuation) are skipped
+    else {
+      Serial.print("Skipping character: ");
+      Serial.println(c);
+    }
+  }
+}
+
+// Function to print the Morse code representation of a letter
+void printMorseCode(char letter) {
+  int index = letter - 'a';
+  
+  if (index >= 0 && index < 26) {
+    Serial.println(morseCode[index]);
+  } else {
+    Serial.println("Unknown character");
   }
 }
 

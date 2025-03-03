@@ -69,8 +69,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/admin/GitHub/src/ECE102/Arduino",
-      "program": "/Users/admin/GitHub/src/ECE102/Arduino/build/Debug/outDebug"
+      "cwd": "/Users/admin/GitHub/src/PlatformIO/morse_blink_wired_LED/src",
+      "program": "/Users/admin/GitHub/src/PlatformIO/morse_blink_wired_LED/src/build/Debug/outDebug"
     }
   ]
 }
